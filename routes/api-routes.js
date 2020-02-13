@@ -19,9 +19,6 @@ module.exports = function(app) {
           });
       });
 
-    // Adding new exercise to new workout
-
-
     // Adding new exercise to existing workout
     app.post("/api/workouts/:_id", (req, res) => {
         let exercises = {
@@ -51,4 +48,13 @@ module.exports = function(app) {
       });
 
     // Viewing workout stats
+    app.get("/api/workouts/range", (req, res) => {
+        db.Workout.find({})
+          .then(dbWorkout => {
+            res.json(dbWorkout);
+          })
+          .catch(err => {
+            res.json(err);
+          });
+      });
 };
