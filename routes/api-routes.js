@@ -8,7 +8,7 @@ module.exports = function(app) {
         });
     });
 
-    // Getting last workout
+    // Getting most recent workout
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({})
           .then(dbWorkout => {
